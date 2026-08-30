@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>IconKit | Icons out of Figma, into production</title>
+  <meta name="description" content="IconKit turns Figma components into icon fonts, SVGs and spritesheets. Generated on your Mac, published to your own server. No cloud, no account." />
+  <meta property="og:title" content="IconKit | Icons out of Figma, into production" />
+  <meta property="og:description" content="IconKit turns Figma components into icon fonts, SVGs and spritesheets. Generated on your Mac, published to your own server." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://iconkit.app/" />
+  <meta property="og:site_name" content="IconKit" />
+  <meta property="og:image" content="https://iconkit.app/assets/img/app-icon.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="IconKit" />
+  <meta name="twitter:description" content="From Figma to icon fonts, locally." />
+  <meta name="twitter:image" content="https://iconkit.app/assets/img/app-icon.png" />
+  <link rel="icon" type="image/png" sizes="64x64" href="/assets/img/favicon.png?v=3" />
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png?v=3" />
+  <link rel="preload" href="/assets/fonts/AsideDisplay_Variable-s.p.0f4iuzgmg-oj_.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/caa3a2e1cccd8315-s.p.0wgildi0cnwt9.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" as="image" href="/assets/img/hero-bg.webp" />
+  <link rel="stylesheet" href="/fonts.css" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+<main class="page-main">
+<!-- Hero card: nav lives inside it, as on aside.com -->
+<div class="hero-frame">
+  <section class="hero" style="background-image:url(/assets/img/hero-bg.webp)">
+    <header class="nav" id="nav">
+      <div class="nav__inner">
+        <a class="nav__brand" href="/">
+          <img src="/assets/img/app-icon.png?v=3" alt="" width="28" height="28" />
+          <span>IconKit</span>
+        </a>
+        <nav class="nav__links" aria-label="Primary">
+          <a href="#features">Features</a>
+          <a href="#how">How it works</a>
+          <a href="#pricing">Pricing</a>
+          <a href="https://github.com/icon-kit/IconKit/releases" target="_blank" rel="noopener">Changelog</a>
+        </nav>
+        <a class="btn btn--dark btn--sm" href="https://github.com/icon-kit/IconKit/releases/latest" data-download>Download</a>
+      </div>
+    </header>
+    <div class="hero__content">
+      <a class="pill" href="https://github.com/icon-kit/IconKit/releases/latest" target="_blank" rel="noopener">
+        <span class="pill__dot"></span> macOS app and Figma plugin <span class="chev" aria-hidden="true">›</span>
+      </a>
+      <h1 class="display">Icons out of Figma.<br />Into production. One click.</h1>
+      <p class="hero__sub">IconKit turns Figma components into icon fonts, SVGs and spritesheets, generated on your Mac and published to your own server.</p>
+      <div class="hero__actions">
+        <a class="btn btn--dark" href="https://github.com/icon-kit/IconKit/releases/latest" data-download>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v8m0 0 3-3M8 10 5 7M3 13h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Download for macOS
+        </a>
+        <a class="btn btn--ghost" href="#how">See how it works</a>
+      </div>
+    </div>
+    <div class="hero__shot" aria-hidden="true">
+      <div class="window window--plugin">
+        <div class="window__bar"><img src="/assets/img/plugin-icon.png" alt="" width="18" height="18" /><span>IconKit</span><span class="window__x">×</span></div>
+        <div class="window__search">Search icons by name, tags... <kbd>⌘F</kbd></div>
+        <div class="window__grid" id="hero-grid"></div>
+        <div class="fab"><span class="fab__plus">+</span> Add <span class="fab__badge">1</span></div>
+        <div class="window__project">
+          <span class="window__chev">⌃⌄</span>
+          <div><div class="window__pname">IconPack</div><div class="window__pstat">664 Icons • 2 days ago</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="page">
+
+  <!-- Introducing -->
+  <section class="split rule-top" id="intro">
+    <div class="split__aside"><a class="eyebrow" href="#features">Introducing IconKit <span class="chev" aria-hidden="true">›</span></a></div>
+    <div class="split__body">
+      <p><strong>Getting an icon from Figma into code is still a chore.</strong> Export SVGs by hand, run them through IcoMoon or a CLI, fix the fill-rule holes, assign unicodes, write the CSS, and redo all of it every time an icon changes.</p>
+      <p><strong>IconKit collapses that loop into one button.</strong> A Figma plugin that reads the real vector paths, and a macOS app that owns the library, fixes the geometry, and generates fonts, SVGs and spritesheets on your machine. Nothing leaves it unless you publish.</p>
+    </div>
+  </section>
+
+  <!-- One click -->
+  <section class="section rule-top" id="features">
+    <div class="section__head">
+      <a class="eyebrow" href="#how">One click <span class="chev" aria-hidden="true">›</span></a>
+      <h2 class="display display--md">Select a component.<br />Hit Add. Done.</h2>
+    </div>
+    <div class="icon-wall" id="icon-wall" role="img" aria-label="A grid of icons from a real IconKit library"></div>
+    <p class="section__lede">The plugin extracts the actual <code>&lt;path&gt;</code> data from your component, keeps its fill rules, and hands it to the app. Codepoints, order and ids are assigned for you. Tags come from the component description. The library updates in Figma and in the app at the same moment.</p>
+    <div class="cards cards--3">
+      <article class="card">
+        <div class="card__visual card__visual--paths" aria-hidden="true">
+          <svg viewBox="0 0 1024 1024" class="card__glyph"><use href="#glyph-bug"/></svg>
+          <div class="card__code">d="M640 150.8c51 29.5 85.3 84.7 85.3 147.8…" fill-rule="evenodd"</div>
+        </div>
+        <p><strong>Real vectors.</strong> Paths, not pixels. Fill rules survive, so rings and cutouts keep their holes through the font pipeline.</p>
+      </article>
+      <article class="card">
+        <div class="card__visual card__visual--codes" aria-hidden="true">
+          <span>U+E0B7</span><span>U+E0B8</span><span>U+E0B9</span><span class="is-next">U+E0BA</span>
+        </div>
+        <p><strong>Automatic codepoints.</strong> Unicode, order and id are incremented for you. Nobody hand-manages a codepoint table again.</p>
+      </article>
+      <article class="card">
+        <div class="card__visual card__visual--conflict" aria-hidden="true">
+          <div class="sheet"><div class="sheet__title">Replace 3 existing icons?</div><div class="sheet__actions"><span class="btn btn--ghost btn--xs">Skip</span><span class="btn btn--dark btn--xs">Replace</span></div></div>
+        </div>
+        <p><strong>Replace without breaking.</strong> A replaced icon keeps its unicode, so every <code>content: "\e0b7"</code> in your CSS still points at the right glyph.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- Exports -->
+  <section class="section rule-top" id="exports">
+    <div class="section__inner">
+      <h2 class="h3">Every format your codebase asks for.</h2>
+      <p class="p">Each project generates an icon font in <strong>EOT, SVG, TTF, WOFF and WOFF2</strong> with a ready <code>style.css</code> and demo page, one <strong>SVG file per icon</strong>, and an <strong>SVG spritesheet</strong>. Turn each output on or off per project. Download the whole font kit as a zip.</p>
+      <div class="formats">
+        <div class="format"><b>iconfont/</b><span>fonts/ · style.css · index.html</span></div>
+        <div class="format"><b>svg/</b><span>one file per icon, widths respected</span></div>
+        <div class="format"><b>sprite/</b><span>sprite.svg · sprite.html</span></div>
+      </div>
+      <div class="window window--app window--story" aria-hidden="true">
+        <div class="window__traffic"><i></i><i></i><i></i></div>
+        <div class="terminal">
+          <div class="terminal__row"><span class="t-dim">▸</span> action-bug <span class="t-dim">added</span> <span class="t-mono">U+E0B7</span></div>
+          <div class="terminal__row"><span class="t-dim">▸</span> action-camera <span class="t-dim">updated</span> <span class="t-mono">U+E0B8</span></div>
+          <div class="terminal__row"><span class="t-dim">▸</span> badge-trophy-fill <span class="t-dim">added</span> <span class="t-mono">U+E0B9</span></div>
+          <div class="terminal__sep"></div>
+          <div class="terminal__row"><span class="t-ok">✓</span> iconfont/ <span class="t-dim">eot svg ttf woff woff2 · style.css · index.html</span></div>
+          <div class="terminal__row"><span class="t-ok">✓</span> svg/ <span class="t-dim">664 files</span></div>
+          <div class="terminal__row"><span class="t-ok">✓</span> sprite/ <span class="t-dim">sprite.svg · sprite.html</span></div>
+          <div class="terminal__sep"></div>
+          <div class="terminal__row"><span class="t-brand">●</span> Generating assets… <span class="t-dim">→</span> 664 Icons • just now</div>
+        </div>
+      </div>
+      <div class="callout">
+        <div class="callout__swatches" aria-hidden="true"><i style="--c:#009bff"></i><i style="--c:#ffb800"></i><i style="--c:#ff4d4d"></i><i style="--c:#1f1f1f"></i></div>
+        <div>
+          <strong>Multicolor icons, one codepoint.</strong> Color icons ship with COLR/CPAL tables so a single glyph renders in full color where supported, with an IcoMoon-style stacked-layers class as the fallback. Monochrome icons are untouched, byte for byte.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Chart -->
+  <section class="section rule-top" id="native">
+    <div class="section__inner">
+      <h2 class="h3">Native, and about half the size.</h2>
+      <p class="p">IconKit moved from Electron to Tauri: a native macOS WebView and a Rust shell, with the generation engine as a single self-contained sidecar. No bundled Chromium. <a href="https://github.com/icon-kit/IconKit/releases" target="_blank" rel="noopener">Release notes</a></p>
+      <div class="chart" role="img" aria-label="Installed size: IconKit on Tauri 148 MB, previous Electron build 274 MB">
+        <div class="chart__row"><span class="chart__label"><img src="/assets/img/app-icon.png?v=3" alt="" width="18" height="18" /> IconKit (Tauri)</span><span class="chart__track"><span class="chart__bar chart__bar--brand" style="--w:54%"></span></span><span class="chart__val">148 MB</span></div>
+        <div class="chart__row"><span class="chart__label"><i class="chart__dot"></i> Previous (Electron)</span><span class="chart__track"><span class="chart__bar" style="--w:100%"></span></span><span class="chart__val">274 MB</span></div>
+      </div>
+      <div class="chart__tabs" aria-hidden="true"><span class="is-active">Installed size</span></div>
+    </div>
+  </section>
+
+  <!-- Workflow rows -->
+  <section class="section rule-top" id="how">
+    <div class="section__head">
+      <a class="eyebrow" href="#how">Built for real icon work <span class="chev" aria-hidden="true">›</span></a>
+      <h2 class="display display--md">Everything that happens<br />after the first icon.</h2>
+    </div>
+
+    <div class="row">
+      <div class="row__text">
+        <h3 class="h3">Multiple projects, one app.</h3>
+        <p class="p">A project is any folder with an <code>icons.json</code>. Create, open, switch, move or delete them from the project bar. Each project has its own exports, metadata and history. Deleted projects go to the Trash, not into the void.</p>
+      </div>
+      <div class="row__visual" aria-hidden="true">
+        <div class="mini-projectbar">
+          <div class="mini-projectbar__row is-active"><span class="folder"></span> IconPack <em>664 Icons</em></div>
+          <div class="mini-projectbar__row"><span class="folder"></span> Marketing <em>48 Icons</em></div>
+          <div class="mini-projectbar__row"><span class="folder"></span> Cube [Gold] <em>212 Icons</em></div>
+          <div class="mini-projectbar__row mini-projectbar__row--action">+ Create New</div>
+          <div class="mini-projectbar__row mini-projectbar__row--action">Open Project…</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row row--reverse">
+      <div class="row__text">
+        <h3 class="h3">A changelog that draws itself.</h3>
+        <p class="p">Every add, update and delete is recorded per project and grouped by version and date. A year-long contributions heatmap shows when the library moved. Part of IconKit Pro.</p>
+      </div>
+      <div class="row__visual" aria-hidden="true">
+        <div class="heatmap" id="heatmap" role="img" aria-label="A year of icon changes shown as a contributions heatmap"></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="row__text">
+        <h3 class="h3">Publish to your own server.</h3>
+        <p class="p">Point IconKit at your endpoint, add a token, and the Publish button appears only when the project's content hash has changed. One click zips and POSTs the project. Never automatic, never to a server you don't own.</p>
+      </div>
+      <div class="row__visual" aria-hidden="true">
+        <div class="publish">
+          <div class="publish__field"><span>API URL</span><b>https://your-server.com/api/iconkit</b></div>
+          <div class="publish__field"><span>Access Token</span><b>••••••••••••••••</b></div>
+          <div class="publish__fab"><span class="t-ok">✓</span> Published</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row row--reverse">
+      <div class="row__text">
+        <h3 class="h3">Figma and the app, always in sync.</h3>
+        <p class="p">The plugin and the app talk over localhost with a live WebSocket. Add from Figma and the app grid updates instantly. Drop SVGs on the app and the plugin sees them. Quit the app and the plugin waits, then reconnects on its own.</p>
+      </div>
+      <div class="row__visual" aria-hidden="true">
+        <div class="sync">
+          <div class="sync__node"><img src="/assets/img/plugin-icon.png" alt="" width="28" height="28" /><span>Figma plugin</span></div>
+          <div class="sync__wire"><span></span><span></span><span></span><em>ws://localhost</em></div>
+          <div class="sync__node"><img src="/assets/img/app-icon.png?v=3" alt="" width="28" height="28" /><span>IconKit app</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Local first -->
+  <section class="section rule-top" id="local">
+    <div class="section__head">
+      <a class="eyebrow" href="#local">Local by default <span class="chev" aria-hidden="true">›</span></a>
+      <h2 class="display display--md">Your icons never leave your Mac.</h2>
+      <p class="section__lede section__lede--center">No cloud and no account. Publishing and licensing both work without IconKit ever hosting your library.</p>
+    </div>
+    <div class="cards cards--4">
+      <article class="card card--text"><p><strong>No cloud, no account.</strong> The library is a folder on disk. The app is the server. Delete it and nothing lingers anywhere else.</p></article>
+      <article class="card card--text"><p><strong>Offline license.</strong> Pro is a signed key you paste once. It is verified on-device, no license server, and works with Wi-Fi off.</p></article>
+      <article class="card card--text"><p><strong>Your server, your token.</strong> Publishing targets an endpoint you configure. IconKit never sees the destination.</p></article>
+      <article class="card card--text"><p><strong>Lives in the menu bar.</strong> A native menu bar icon with a status dot, an optional Dock icon, light and dark themes, and one-click updates.</p></article>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section rule-top" id="pricing">
+    <div class="section__head">
+      <a class="eyebrow" href="#pricing">Pricing <span class="chev" aria-hidden="true">›</span></a>
+      <h2 class="display display--md">One payment.<br />No subscription.</h2>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <div class="plan__name">Free</div>
+        <div class="plan__price">$0</div>
+        <ul class="plan__list">
+          <li>12 icons</li>
+          <li>1 project</li>
+          <li>Font, SVG and sprite exports</li>
+          <li>Figma plugin and live sync</li>
+        </ul>
+        <a class="btn btn--ghost btn--block" href="https://github.com/icon-kit/IconKit/releases/latest" data-download>Download for macOS</a>
+      </div>
+      <div class="plan plan--pro">
+        <div class="plan__name">IconKit Pro <span class="tag">PRO</span></div>
+        <div class="plan__price">$19.99 <small>once</small></div>
+        <ul class="plan__list">
+          <li>Unlimited icons</li>
+          <li>Unlimited projects</li>
+          <li>All export options</li>
+          <li>Changelog and version history</li>
+        </ul>
+        <a class="btn btn--brand btn--block" href="/pro">Get Pro $19.99</a>
+      </div>
+    </div>
+    <p class="fineprint">The same app for everyone. Pro is a license key you paste into Settings. Deactivate on one Mac, activate on another.</p>
+  </section>
+
+  <!-- Closing -->
+  <section class="closing rule-top">
+    <div class="closing__banner" style="background-image:url(/assets/img/bg-banner.png)">
+      <h2 class="display display--md">Built for designers, and the developers<br />who ship their icons.</h2>
+      <a class="btn btn--dark" href="https://github.com/icon-kit/IconKit/releases/latest" data-download>Download for macOS</a>
+      <p class="closing__note">macOS on Apple Silicon · about 148 MB · the Figma plugin is a separate install</p>
+    </div>
+  </section>
+
+</div>
+</main>
+
+<footer class="footer rule-top">
+  <div class="footer__cols">
+    <div><h4>Product</h4><a href="https://github.com/icon-kit/IconKit/releases/latest">Download</a><a href="#how">Figma plugin</a><a href="https://github.com/icon-kit/IconKit/releases">Changelog</a><a href="/pro">Pro</a></div>
+    <div><h4>Learn</h4><a href="#how">How it works</a><a href="#features">Component rules</a><a href="#exports">Exports</a><a href="#local">Local-first</a></div>
+    <div><h4>Support</h4><a href="https://github.com/icon-kit/IconKit/issues">Report an issue</a><a href="/pro">License key help</a></div>
+    <div><h4>Legal</h4><a href="#">Terms of Service</a><a href="#">Privacy Policy</a></div>
+  </div>
+  <div class="footer__bottom"><img src="/assets/img/app-icon.png?v=3" alt="" width="20" height="20" /> © 2026 IconKit</div>
+</footer>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="glyph-bug" viewBox="0 0 1024 1024"><path d="M640 150.832c51.012 29.509 85.333 84.664 85.333 147.835v17.751c49.214 21.502 88.746 61.035 110.249 110.249h60.418v-85.333h85.333v128c0 23.564-19.103 42.667-42.667 42.667h-85.333v42.667h128v85.333h-128c0 45.265-8.811 88.472-24.808 128h110.141v85.333h-85.333v85.333h-85.333v-116.617c-59.99 47.3-136.032 75.55-218.667 75.55s-158.677-28.25-218.667-75.55v116.617h-85.333v-85.333h-85.333v-85.333h110.141c-15.997-39.528-24.808-82.735-24.808-128h-128v-85.333h128v-42.667h-85.333c-23.564 0-42.667-19.103-42.667-42.667v-128h85.333v85.333h60.418c21.503-49.214 61.035-88.747 110.249-110.249v-17.751c0-63.171 34.321-118.326 85.333-147.835v-65.499h85.333v42.98c13.855-2.61 28.116-4.146 42.667-4.146s28.812 1.536 42.667 4.146v-42.98h85.333v65.499zM469.333 320c-62.95 0-115.947 42.98-131.029 101.195 21.363-10.183 45.312-15.862 70.442-15.862h206.507c25.131 0 49.079 5.679 70.442 15.862-15.082-58.215-68.079-101.195-131.029-101.195h-85.333zM469.333 490.667c-52.71 0-96.939 35.968-109.615 84.674 8.193 3.849 17.322 6.052 27.128 6.052h250.308c9.807 0 18.935-2.203 27.128-6.052-12.676-48.706-56.905-84.674-109.615-84.674h-85.333zM512 704c-70.692 0-128 57.308-128 128 0 6.99 0.564 13.844 1.65 20.529 34.71 13.951 72.83 21.471 112.35 21.471h28c39.52 0 77.64-7.52 112.35-21.471 1.086-6.685 1.65-13.539 1.65-20.529 0-70.692-57.308-128-128-128z"/></symbol>
+</svg>
+
+<script src="/main.js" defer></script>
+</body>
+</html>

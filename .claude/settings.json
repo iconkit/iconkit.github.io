@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat README.md)",
+      "Bash(cat readme.md)",
+      "Bash(cat figma-plugin/readme.md)"
+    ]
+  }
+}
