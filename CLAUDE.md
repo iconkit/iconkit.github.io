@@ -23,8 +23,8 @@ not under a project path. GitHub Pages builds `site/` via
 `.github/workflows/pages.yml` on every push to `main`. `site/.nojekyll` keeps
 Jekyll off the font filenames.
 
-Every path in the HTML and CSS is root-absolute (`/assets/...`, `/styles.css`,
-`/pro`), so the site only works when served from a domain root. That is exactly
+Every path in the HTML and CSS is root-absolute (`/assets/...`, `/styles.css`),
+so the site only works when served from a domain root. That is exactly
 why the landing lives here and not in `iconkit/IconKit`, where it would sit
 under `/IconKit/` and every asset would 404.
 
@@ -49,9 +49,10 @@ by way of `iconkit/IconKit`, which keeps only the release-hosting role.
   those; do not replace them with approximations or Google Fonts.
 - The app icon is `../tauri-app/src-tauri/icons/icon.png`. Never use
   `../tauri-app/build/app-icon.png` (old design).
-- `/pro` must keep existing. The desktop app's Get Pro button still opens
-  `https://iconkit.app/pro`, which is not our domain, so that button points at
-  a stranger's site until the app is changed to open
-  `https://iconkit.github.io/pro` or a domain we actually own.
+- There is no `/pro` page. The landing is a single page; the Get Pro button
+  and the footer Pro link both go to the `#pricing` section. The desktop app's
+  own Get Pro button opens `https://iconkit.app/pro`, which is not our domain,
+  so that button points at a stranger's site until the app is changed to open
+  a real checkout on a domain we actually own.
 - Verify visually: `npm run dev`, then headless Chrome
   `--screenshot --window-size=1440,5200` on the printed URL.

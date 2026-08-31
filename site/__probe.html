@@ -1,0 +1,16 @@
+<body><pre id="out">waiting</pre>
+<iframe id="f" src="/" style="width:1440px;height:900px;border:0"></iframe>
+<script>
+document.getElementById('f').onload = () => {
+  const w = document.getElementById('f').contentWindow, d = w.document;
+  const ghost = d.querySelector('.hero__actions .btn--ghost');
+  const win = d.querySelector('.hero__shot .window');
+  const g = w.getComputedStyle(ghost), v = w.getComputedStyle(win);
+  document.getElementById('out').textContent = JSON.stringify({
+    ghostBorderColor: g.borderTopColor,
+    ghostBoxShadow: g.boxShadow,
+    windowBorderColor: v.borderTopColor,
+    windowBoxShadow: v.boxShadow,
+  }, null, 1);
+};
+</script></body>

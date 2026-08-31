@@ -1,16 +1,34 @@
 // IconKit landing: small, dependency-free behaviour.
 (function () {
-  // Real icons from the sample library, copied into assets/icons/.
+  // Real glyphs from a production IconKit library, copied into assets/icons/.
   const ICONS = [
-    'action-add-person', 'action-ai', 'action-attach', 'action-barcode', 'action-basket-outline',
-    'action-bookmark-outline', 'action-bug', 'action-calendar', 'action-camera', 'action-card',
-    'action-chart', 'action-comment', 'action-compare', 'action-confetti', 'action-delete',
-    'action-explore', 'action-eye-on', 'action-face-happy', 'ad-action-similar', 'alert-notification-read',
-    'badge-bundle', 'badge-discount-tiered', 'badge-hashtag', 'badge-score', 'badge-trophy-fill',
-    'cat-bookstationary', 'cat-fmcg-canned', 'cat-fmcg-pet', 'cat-kidstooy-fill', 'cat-service-fill',
-    'cloud-iaaaas', 'comm-wifi-on', 'content-flip-horiz', 'device-calc', 'file-publish',
-    'location-iran', 'nav-arrow-left-circle', 'nav-chevron-up', 'os-debian', 'payment-sheba',
-    'qc-reject', 'shipping-seller', 'shop-process', 'social-instagram', 'toggle-switch',
+    'action-search', 'action-bookmark-outline', 'action-favorite-outline', 'action-star-outline', 'action-camera',
+    'action-attach', 'action-calendar', 'action-comment', 'action-chart', 'action-card',
+    'action-bug', 'action-key', 'action-link', 'action-lock', 'action-filter',
+    'action-flag', 'action-gift-card', 'action-history', 'action-home-outline', 'action-mic',
+    'action-people', 'action-pin', 'action-profile-outline', 'action-refresh', 'action-setting',
+    'action-share', 'action-sort', 'action-terms', 'action-time', 'action-add-person',
+    'action-eye-on', 'action-face-happy', 'action-grid', 'action-list-outline', 'action-explore',
+    'action-bookmark', 'alert-notification-outline', 'alert-info-outline', 'alert-error-outline', 'badge-lightning',
+    'badge-trophy', 'badge-verified', 'badge-hashtag', 'badge-money', 'badge-lamp',
+    'badge-magnet-outline', 'comm-chat', 'comm-headphone', 'comm-laptop', 'comm-mobile',
+    'comm-send', 'comm-wifi-on', 'comm-robot', 'comm-support', 'content-copy',
+    'content-edit', 'content-crop', 'content-check', 'content-write', 'content-infinity',
+    'content-swap-horiz', 'content-trend-up', 'content-block', 'content-duplicate', 'content-note-pin',
+    'device-printer', 'device-calc', 'device-speaker', 'file-doc', 'file-image',
+    'file-download', 'file-upload', 'file-export', 'file-qr', 'file-publish',
+    'location-map', 'location-pin', 'location-direction', 'media-play-outline', 'media-video',
+    'media-3d', 'media-reel', 'nav-menu', 'nav-more-horiz', 'nav-zoom-in',
+    'nav-arrow-right-circle', 'nav-undo', 'nav-redo', 'nav-expand', 'shop-cart-outline',
+    'shop-gift', 'shop-receipt', 'shop-mall', 'shop-save', 'shop-guarantee',
+    'shipping-bike', 'shipping-jet', 'shipping-locker', 'shipping-fast', 'payment-bank',
+    'payment-wallet', 'payment-safe', 'payment-dollar', 'cat-electronic', 'cat-fashion',
+    'cat-health', 'cat-tools', 'cat-vehicle', 'cat-mobile', 'cat-beauty',
+    'cat-sportoutdoor', 'cat-jewelry', 'action-work', 'badge-book', 'badge-free',
+    'content-check-double', 'file-done', 'cloud-api', 'cloud-cli', 'cloud-disk',
+    'cloud-hub', 'cloud-workspace', 'cloud-language', 'location-hub', 'media-pause',
+    'nav-collapse', 'shop-order', 'action-privacy', 'action-question', 'action-sign-out',
+    'action-fullscreen', 'action-shuffle', 'action-flash-on',
   ];
 
   const cache = new Map();
@@ -43,9 +61,15 @@
   // Hero plugin window: 6 columns x 6 rows, with one "being written" cell.
   fillGrid(document.getElementById('hero-grid'), ICONS.slice(0, 36), { pending: [7] });
 
-  // Icon wall: all icons, a few tinted brand blue like a fresh add.
+  // Icon wall: a spread of the library, a few tinted brand blue like a fresh add.
+  // Capped so the wall stays a few rows tall; trimToWholeRows drops the ragged end.
+  const WALL_COUNT = 45;
+  const step = Math.max(1, Math.floor(ICONS.length / WALL_COUNT));
+  const wallIcons = [];
+  for (let i = 0; wallIcons.length < WALL_COUNT && i < ICONS.length; i += step) wallIcons.push(ICONS[i]);
+
   const wall = document.getElementById('icon-wall');
-  fillGrid(wall, ICONS, { brand: [6, 19, 31] }).then(() => trimToWholeRows(wall));
+  fillGrid(wall, wallIcons, { brand: [6, 19, 31] }).then(() => trimToWholeRows(wall));
 
   // Hide the trailing partial row so the wall always ends on a full row.
   function trimToWholeRows(el) {
@@ -61,6 +85,15 @@
     if ('ResizeObserver' in window) new ResizeObserver(apply).observe(el);
     else window.addEventListener('resize', apply);
   }
+
+  // App UI icons (assets/ui/) replace the text glyphs the chrome used to fake:
+  // the window close, the project chevron, folders, and the published check.
+  document.querySelectorAll('[data-ui-icon]').forEach((el) => {
+    fetch('/assets/ui/' + el.dataset.uiIcon + '.svg')
+      .then((r) => (r.ok ? r.text() : ''))
+      .then((svg) => { if (svg) el.innerHTML = svg; })
+      .catch(() => {});
+  });
 
   // Heatmap: deterministic pseudo-random activity.
   const heat = document.getElementById('heatmap');

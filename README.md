@@ -190,7 +190,8 @@ No license server, no account.
 | Price | Free | **$19.99, one payment, no subscription** |
 
 - Checkout URL baked into the app: `https://iconkit.app/pro` (placeholder until
-  the payment provider is live). The landing must serve this route.
+  the payment provider is live). That is not our domain, and the landing does
+  not serve a `/pro` route.
 - Key format `IK1.<payload>.<signature>`, pasted into Settings → IconKit Pro →
   License Key → **Activate**. Verified offline against a public key baked into
   the app. Deactivate forgets the key on that Mac only; the key stays valid.
@@ -334,7 +335,6 @@ web-landing/
     fonts.css        aside's @font-face blocks, verbatim, paths rewritten
     styles.css       tokens + layout + components
     main.js          nav state, icon grid, download button, small motion
-    pro/index.html   /pro route the app links to (checkout placeholder)
     assets/
       fonts/         AsideDisplay Variable + Geist + Geist Mono woff2 (from aside)
       img/           app-icon.png (shipped icon), plugin-icon.png, plugin-screenshot.png,
@@ -375,7 +375,8 @@ npm run dev     # serves site/ on http://127.0.0.1:3100 (steps to the next free 
 ### Open items before publishing
 - Real app screenshots (index page with project bar, changelog heatmap,
   settings with Pro row). Only the plugin screenshot exists today.
-- Payment provider for `/pro` (the app already links there).
+- Payment provider and a real checkout URL, then repoint the Get Pro button
+  (it currently falls back to the releases page).
 - Download link: currently the GitHub releases page; switch to a direct
   `IconKit.app.tar.gz` once notarized.
 - Terms and Privacy pages.
