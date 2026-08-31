@@ -69,7 +69,7 @@
   for (let i = 0; wallIcons.length < WALL_COUNT && i < ICONS.length; i += step) wallIcons.push(ICONS[i]);
 
   const wall = document.getElementById('icon-wall');
-  fillGrid(wall, wallIcons, { brand: [6, 19, 31] }).then(() => trimToWholeRows(wall));
+  fillGrid(wall, wallIcons, { brand: [6, 20, 33] }).then(() => trimToWholeRows(wall));
 
   // Hide the trailing partial row so the wall always ends on a full row.
   function trimToWholeRows(el) {

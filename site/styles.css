@@ -45,7 +45,7 @@ kbd { font-family: var(--mono); font-size: 11px; color: var(--ink-4); }
 
 /* Column with hairline side rules */
 .page, .footer { max-width: var(--col); margin: 0 auto; }
-.page { border-left: 1px solid var(--line); border-right: 1px solid var(--line); }
+.page { }
 
 .rule-top { border-top: 1px solid var(--line); }
 
@@ -69,8 +69,8 @@ kbd { font-family: var(--mono); font-size: 11px; color: var(--ink-4); }
 /* Brand blue with the app's dark label (6.7:1); white on this blue is only 2.9:1. */
 .btn--brand { background: var(--brand); color: var(--ink); }
 .btn--brand:hover { background: var(--brand-dark); }
-.btn--ghost { background: #fff; color: var(--ink); border-color: var(--line); }
-.btn--ghost:hover { border-color: var(--ink-5); }
+.btn--ghost { background: #fff; color: var(--ink); border-color: transparent; box-shadow: 0 1px 2px rgba(10,10,10,0.06), 0 4px 12px -4px rgba(10,10,10,0.14); }
+.btn--ghost:hover { box-shadow: 0 2px 4px rgba(10,10,10,0.08), 0 8px 20px -6px rgba(10,10,10,0.18); }
 .btn--sm { height: 36px; padding: 0 16px; font-size: 14px; }
 .btn--xs { height: 28px; padding: 0 12px; font-size: 12.5px; }
 .btn--block { width: 100%; }
@@ -259,8 +259,7 @@ kbd { font-family: var(--mono); font-size: 11px; color: var(--ink-4); }
 .fineprint { text-align: center; color: var(--ink-3); font-size: 14px; margin: 28px 0 0; }
 
 /* Closing */
-/* Full-bleed so the .page side rules do not bracket the banner. */
-.closing { padding: 96px 0 0; margin-left: -1px; margin-right: -1px; }
+.closing { padding: 96px 0 0; }
 .closing__banner { border-radius: 22px; background: var(--surface-3) center / cover no-repeat; padding: 128px 32px; margin: 0 16px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 28px; }
 .closing__note { margin: 0; color: var(--ink-2); font-size: 14px; background: rgba(255,255,255,.72); padding: 6px 14px; border-radius: 999px; }
 
