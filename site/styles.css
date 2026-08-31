@@ -43,9 +43,8 @@ img { max-width: 100%; display: block; }
 code { font-family: var(--mono); font-size: 0.92em; background: var(--surface-3); padding: 1px 5px; border-radius: 4px; }
 kbd { font-family: var(--mono); font-size: 11px; color: var(--ink-4); }
 
-/* Column with hairline side rules */
+/* Centered content column */
 .page, .footer { max-width: var(--col); margin: 0 auto; }
-.page { }
 
 .rule-top { border-top: 1px solid var(--line); }
 
@@ -69,8 +68,8 @@ kbd { font-family: var(--mono); font-size: 11px; color: var(--ink-4); }
 /* Brand blue with the app's dark label (6.7:1); white on this blue is only 2.9:1. */
 .btn--brand { background: var(--brand); color: var(--ink); }
 .btn--brand:hover { background: var(--brand-dark); }
-.btn--ghost { background: #fff; color: var(--ink); border-color: transparent; box-shadow: 0 1px 2px rgba(10,10,10,0.06), 0 4px 12px -4px rgba(10,10,10,0.14); }
-.btn--ghost:hover { box-shadow: 0 2px 4px rgba(10,10,10,0.08), 0 8px 20px -6px rgba(10,10,10,0.18); }
+.btn--ghost { background: #fff; color: var(--ink); border-color: transparent; box-shadow: 0 0 0 1px rgba(10,10,10,0.08), 0 1px 2px rgba(10,10,10,0.06), 0 4px 12px -4px rgba(10,10,10,0.14); }
+.btn--ghost:hover { box-shadow: 0 0 0 1px rgba(10,10,10,0.08), 0 2px 4px rgba(10,10,10,0.08), 0 8px 20px -6px rgba(10,10,10,0.18); }
 .btn--sm { height: 36px; padding: 0 16px; font-size: 14px; }
 .btn--xs { height: 28px; padding: 0 12px; font-size: 12.5px; }
 .btn--block { width: 100%; }
@@ -98,10 +97,12 @@ kbd { font-family: var(--mono); font-size: 11px; color: var(--ink-4); }
 .hero__sub { max-width: 560px; color: var(--ink-2); font-size: 18px; margin: 0; }
 .hero__actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
 .hero__shot { position: relative; z-index: 1; margin: 56px auto -1px; width: 400px; max-width: 100%; text-align: left; }
-.hero__shot .window { border-radius: 16px 16px 0 0; border-bottom: 0; }
+/* Hero card bleeds off the page bottom, so its ring only runs top/left/right. */
+.hero__shot .window { border-radius: 16px 16px 0 0; box-shadow: -1px 0 0 rgba(10,10,10,0.08), 1px 0 0 rgba(10,10,10,0.08), 0 -1px 0 rgba(10,10,10,0.08), 0 30px 80px -30px rgba(10,10,10,0.25), 0 2px 8px rgba(10,10,10,0.05); }
 .window--plugin .window__grid { -webkit-mask-image: linear-gradient(180deg, #000 calc(100% - 28px), transparent); mask-image: linear-gradient(180deg, #000 calc(100% - 28px), transparent); }
 
-.window { background: #fff; border: 1px solid var(--line); border-radius: 16px; box-shadow: 0 30px 80px -30px rgba(10,10,10,0.25), 0 2px 8px rgba(10,10,10,0.05); overflow: hidden; position: relative; }
+/* Edge is a 1px-spread ring at 8%, not a border, so it sits outside the fill. */
+.window { background: #fff; border: 0; border-radius: 16px; box-shadow: 0 0 0 1px rgba(10,10,10,0.08), 0 30px 80px -30px rgba(10,10,10,0.25), 0 2px 8px rgba(10,10,10,0.05); overflow: hidden; position: relative; }
 .window--plugin { display: flex; flex-direction: column; height: 520px; }
 .window__bar { display: flex; align-items: center; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--line-soft); font-weight: 600; font-size: 14px; }
 .window__bar img { border-radius: 5px; }
@@ -148,7 +149,11 @@ kbd { font-family: var(--mono); font-size: 11px; color: var(--ink-4); }
 .section__lede--center { text-align: center; margin: 0; color: var(--ink-3); }
 
 /* Icon wall */
-.icon-wall { display: grid; grid-template-columns: repeat(auto-fill, minmax(56px, 1fr)); gap: 14px; max-width: 896px; min-height: 224px; margin: 0 auto; perspective: 1200px; mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+.icon-wall { display: grid; grid-template-columns: repeat(auto-fill, minmax(56px, 1fr)); gap: 14px; max-width: 896px; min-height: 224px; margin: 0 auto; perspective: 1200px;
+  /* Neither the rise animation's 6px translate nor the cells' drop shadow grows the
+     grid, so the bottom row would spill outside the box and get clipped. Reserve the
+     6px offset plus the shadow's reach (6px down + 18px blur - 10px spread). */
+  padding-bottom: 20px; mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
 .icon-wall .cell[hidden] { display: none; }
 .icon-wall .cell { aspect-ratio: 1; border-radius: 14px; background: #fff; border: 1px solid var(--line); display: grid; place-items: center; color: var(--ink); box-shadow: 0 6px 18px -10px rgba(10,10,10,.25); transform: translateY(6px); opacity: 0; animation: rise .5s cubic-bezier(.2,.7,.2,1) forwards; animation-delay: calc(var(--i) * 18ms); }
 .icon-wall .cell svg { width: 26px; height: 26px; fill: currentColor; }
